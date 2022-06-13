@@ -8,5 +8,31 @@ docker build -t api_rest:10.06.22 .
 
 ## crear un contenedor
 '''bash
-docker run -it -v "$PWD"/code:/home/code --net=host --name api_rest -h api_rest api_rest:10.06.22
+docker run -it -v /workspace/API-REST/code:/home/code --net=host --name api_rest -h api_rest api_rest:10.06.22
+'''
+
+## ver contenedores
+'''bash
+docker ps -a
+'''
+
+## eliminar contenedor
+'''bash
+docker rm
+'''
+
+## eliminar imagen
+'''bash
+docker rmi
+'''
+
+## ver todos los contenedores
+'''bash
+docker ps -a
+'''
+
+
+## ver todas las imagenes
+'''bash
+docker images
 '''

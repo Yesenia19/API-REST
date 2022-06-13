@@ -14,3 +14,5 @@ uvicorn main:app --reload
 pytest -v
 '''
 usar -vv para mostrar completos los errores
+
+## crear un contenedor

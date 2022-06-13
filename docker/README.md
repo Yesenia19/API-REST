@@ -36,3 +36,8 @@ docker ps -a
 '''bash
 docker images
 '''
+
+## parar un contenedor
+'''bash
+docker stop f4968afc0253
+'''

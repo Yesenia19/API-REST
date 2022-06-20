@@ -67,5 +67,16 @@ async def clientes(id:int, nombre: str, email:str):
         #ordena los formatos en json
         response = {"mensaje":"Cliente actualizado"}
         return  response
-        
+
+@app.delete("/clientes/", response_model=Respuesta)
+async def clientes(id:int):
+    #conexion a una bd cierra automaticamente el archivo que se utilice
+    with sqlite3.connect('sql/clientes.sqlite') as connection:
+        connection.row_factory=sqlite3.Row
+        #cursor para realizar las operaciones en la BD
+        cursor = connection.cursor()
+        cursor.execute("DELETE FROM clientes WHERE id_cliente={} ;".format(id))
+        #ordena los formatos en json
+        response = {"mensaje":"Cliente borrado"}
+        return  response
 

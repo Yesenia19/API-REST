@@ -43,3 +43,17 @@ async def clientes(id: int):
         #ordena los formatos en json
         response = cursor.fetchall()
         return response
+
+@app.put("/clientes/", response_model=Respuesta)
+async def clientes(nombre: str, email:str):
+    #conexion a una bd cierra automaticamente el archivo que se utilice
+    with sqlite3.connect('sql/clientes.sqlite') as connection:
+        connection.row_factory=sqlite3.Row
+        #cursor para realizar las operaciones en la BD
+        cursor = connection.cursor()
+        cursor.execute("INSERT INTO clientes (nombre, email) values ('{}','{}');".format(nombre,email))
+        #ordena los formatos en json
+        response = {"mensaje":"Cliente agregado"}
+        return  response
+        
+

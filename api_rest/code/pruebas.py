@@ -23,7 +23,7 @@ async def index(): # creamos una clase de manera asincrona
 @app.get("/clientes/", response_model=List[Cliente])
 async def clientes():
     #conexion a una bd cierra automaticamente el archivo que se utilice
-    with sqlite3.connect('sql/clientes.sqlite') as connection:
+    with sqlite3.connect('code/sql/clientes.sqlite') as connection:
         connection.row_factory=sqlite3.Row
         #cursor para realizar las operaciones en la BD
         cursor = connection.cursor()
@@ -35,7 +35,7 @@ async def clientes():
 @app.get("/clientes/{id}", response_model=List[Cliente])
 async def clientes(id: int):
     #conexion a una bd cierra automaticamente el archivo que se utilice
-    with sqlite3.connect('sql/clientes.sqlite') as connection:
+    with sqlite3.connect('code/sql/clientes.sqlite') as connection:
         connection.row_factory=sqlite3.Row
         #cursor para realizar las operaciones en la BD
         cursor = connection.cursor()
@@ -47,7 +47,7 @@ async def clientes(id: int):
 @app.post("/POST/{nombre}&{email}", response_model=Respuesta) #insertar
 async def clientes(nombre: str, email:str):
     #conexion a una bd cierra automaticamente el archivo que se utilice
-    with sqlite3.connect('sql/clientes.sqlite') as connection:
+    with sqlite3.connect('code/sql/clientes.sqlite') as connection:
         connection.row_factory=sqlite3.Row
         #cursor para realizar las operaciones en la BD
         cursor = connection.cursor()
@@ -59,7 +59,7 @@ async def clientes(nombre: str, email:str):
 @app.put("/PUT/{id}&{nombre}&{email}", response_model=Respuesta) #actualizar
 async def clientes(id:int, nombre: str, email:str):
     #conexion a una bd cierra automaticamente el archivo que se utilice
-    with sqlite3.connect('sql/clientes.sqlite') as connection:
+    with sqlite3.connect('code/sql/clientes.sqlite') as connection:
         connection.row_factory=sqlite3.Row
         #cursor para realizar las operaciones en la BD
         cursor = connection.cursor()
@@ -71,7 +71,7 @@ async def clientes(id:int, nombre: str, email:str):
 @app.delete("/DELETE/{id}", response_model=Respuesta) #eliminar
 async def clientes(id:int):
     #conexion a una bd cierra automaticamente el archivo que se utilice
-    with sqlite3.connect('sql/clientes.sqlite') as connection:
+    with sqlite3.connect('code/sql/clientes.sqlite') as connection:
         connection.row_factory=sqlite3.Row
         #cursor para realizar las operaciones en la BD
         cursor = connection.cursor()

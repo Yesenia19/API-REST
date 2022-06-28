@@ -79,4 +79,3 @@ async def clientes(id:int):
         #ordena los formatos en json
         response = {"mensaje":"Cliente borrado"}
         return  response
-

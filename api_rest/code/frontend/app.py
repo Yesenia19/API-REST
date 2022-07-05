@@ -6,7 +6,6 @@ urls=(
     "/clientes/post/(.*)",     "PostCliente",
     "/clientes/put/(.*)",      "PutCliente",
     "/clientes/delete/(.*)",   "DeleteCliente",
-    '/validate/', 'Validate',
 )
 
 app = web.application(urls, globals())

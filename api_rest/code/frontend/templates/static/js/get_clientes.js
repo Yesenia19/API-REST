@@ -1,8 +1,8 @@
 function getClientes() {
     var request = new XMLHttpRequest();
     //Accede a la session de la pagina
-    username= "user";
-    password= "user";
+    username= sessionStorage.getItem("username");
+    password= sessionStorage.getItem("password");
    
     request.open('GET', 'https://8000-yesenia19-apirest-tfnscafx6c7.ws-us51.gitpod.io/clientes/');
     request.setRequestHeader("Accept", "application/json");
